@@ -4,8 +4,20 @@ source ~/.vimrc
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 let mapleader = " "
+set history=200
+set showcmd
+set wildmenu
+set scrolloff=10
+set incsearch
+set nrformats-=octal
+
+set hlsearch
+set ignorecase
+set smartcase
+"set visualbell
+
+set showmode
 set number relativenumber
-set scrolloff=8
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -13,12 +25,19 @@ noremap <Right> <Nop>
 " Do incremental searching.
 
 nmap <leader>h <action>(PreviousTab)
+nmap <leader>n <action>(NextTab)
+nmap <leader>f <Action>(Forward)
+nmap <leader>b <Action>(Back)
+nmap <leader>l <Action>(QuickImplementations)
 noremap <leader>d :action GotoImplementation<CR>
+noremap <leader>o :action GotoDeclaration<CR>
+
 noremap <leader>r :action RenameElement<CR>
 noremap <leader>m :action Move<CR>
+nnoremap <leader>c :action QuickJavaDoc<CR>
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
 "list actions actionlist"
-set incsearch
-
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
