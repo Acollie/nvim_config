@@ -1,5 +1,4 @@
 "" Source your .vimrc
-source ~/.vimrc
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -23,18 +22,53 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 " Do incremental searching.
-
+nmap <C-L><C-L> :set invrelativenumber<CR>
 nmap <leader>h <action>(PreviousTab)
 nmap <leader>n <action>(NextTab)
-nmap <leader>f <Action>(Forward)
-nmap <leader>b <Action>(Back)
+" Run by pressing space ender
+nmap <leader>r :action Run<CR>
+nmap <leader>d :action Debug<CR>
+" open terminal
+noremap <leader>t <Action>:action ActivateTerminalToolWindow<CR>
+noremap <leader>z <Action>:action FileStructurePopup<CR>
+" sticky toggle
+noremap <leader>s :action StickySelection<CR>
+
+"press 1 for bookmark 1
+noremap <leader>1 :action GotoBookmark1<CR>
+noremap <leader>2 :action GotoBookmark2<CR>
+noremap <leader>3 :action GotoBookmark3<CR>
+noremap <leader>4 :action GotoBookmark4<CR>
+
+"Add bookmark space +"
+noremap <leader>q :action AddBookmark<CR>
+
+" Run by pressing space ender
+nmap <leader>a <Action>(Run)
+
+"Move tab by pressing tab
+nmap <Tab> <Action>(NextTab)
+nmap <S-Tab> <Action>(PreviousTab)
+
 nmap <leader>l <Action>(QuickImplementations)
 noremap <leader>d :action GotoImplementation<CR>
 noremap <leader>o :action GotoDeclaration<CR>
+noremap <leader>b :action Back<CR>
+noremap <leader>n :set ideamarks<CR>
 
 noremap <leader>r :action RenameElement<CR>
 noremap <leader>m :action Move<CR>
 nnoremap <leader>c :action QuickJavaDoc<CR>
+" Open Project view
+noremap <leader>s :action ProjectView<CR>
+" Toogle Project view
+noremap <leader>h :action ActivateProjectToolWindow<CR>
+" show where currently editing file is located
+noremap <leader>f :action SelectInProjectView<CR>
+" Split window
+noremap <leader>v :action SplitVertically<CR>
+noremap <leader>s :action SplitHorizontally<CR>
+
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 "list actions actionlist"
@@ -54,4 +88,4 @@ map Q gq
 
 
 " Find more examples here: https://jb.gg/share-ideavimrc
-" RenameAttributeAction"
+" RenameAttributeActio
